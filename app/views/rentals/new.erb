@@ -1,0 +1,20 @@
+# @rental = Rental.new
+# @boats = Boat.all
+
+<h1>New Rental</h1>
+
+<%= form_tag rentals_path %>
+
+    <label>Rental Date</label>
+    <%= text_field_tag :'rental[date]' %>
+
+    <label>Customer Name</label>
+    <%= text_field_tag :'customer[name]' %>
+
+    <% @boats.each do |boat| %>
+       <%= radio_button_tag(:'rental[boat_id]', boat.id, checked = false) %>
+    <% end %>
+
+    <%= submit_tag "Submit Rental" %>
+
+<% end %>
